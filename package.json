@@ -1,0 +1,51 @@
+{
+  "name": "generator-angular2-sass-gulp-heroku",
+  "version": "1.0.0",
+  "description": "A generator to create an Angular2 startup project with support of auto compilation of SASS, gulp tasks for creating perfect build for deployment & configuration ",
+  "homepage": "https://github.com/tushar-chauhan/generator-angular2-sass-gulp-heroku",
+  "author": {
+    "name": "Tushar Chauhan",
+    "email": "chauhan.tushar@gmail.com",
+    "url": "https://github.com/tushar-chauhan"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/app/index.js",
+  "keywords": [
+    "yeoman-generator", "Angular2", "Gulp", "SASS", "bootstrap-sass", "heroku"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "lodash": "4.11.2",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^0.22.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "yeoman-test": "^1.0.0",
+    "yeoman-assert": "^2.0.0",
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.12.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "tushar-chauhan/generator-angular2-sass-gulp-heroku",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "Apache-2.0"
+}
