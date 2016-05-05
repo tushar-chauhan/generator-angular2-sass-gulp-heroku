@@ -1,5 +1,8 @@
 # generator-angular2-sass-gulp-heroku
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
+[![Build Status][travis-image]][travis-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![NPM version][npm-image]][npm-url]
 
 A generator to create an Angular2 startup project with following features:
 * Auto-compilation support for SASS
