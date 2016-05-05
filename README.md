@@ -4,7 +4,7 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![NPM version][npm-image]][npm-url]
 
-A generator to create an Angular2 startup project with following features:
+A Yeoman generator to create an Angular2 startup project with following features:
 * Auto-compilation support for SASS
 * Gulp tasks for creating perfect build to deploy on Heroku
 * Configuration for Deployment on Heroku
@@ -20,12 +20,18 @@ npm install -g generator-angular2-sass-gulp-heroku
 
 Then generate your new project:
 
-```bash
+```sh
 yo angular2-sass-gulp-heroku
 ```
 This will create a new Angular2 project in the directory you executed the command listed above.
 
-**NOTE:** The _**README.md**_ file of the generated project contains all the details regarding how to use it.
+To check what all options you can pass to the generator, run:
+
+```sh
+yo angular2-sass-gulp-heroku --help
+```
+
+**NOTE:** The **README** file of the generated project contains all the details regarding how to work with it.
 
 ## License
 Apache-2.0

@@ -81,6 +81,7 @@ module.exports = yeoman.Base.extend({
       "karma-test-shim.js",
       "karma.conf.js",
       "protractor.config.js",
+      "systemjs.config.js",
       "tsconfig.json",
       "tslint.json",
       "typings.json",
@@ -92,7 +93,8 @@ module.exports = yeoman.Base.extend({
 
     var directories = [
       "app",
-      "styles"
+      "styles",
+      "typings"
     ];
 
     var emptiyDirectories = [

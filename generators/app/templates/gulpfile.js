@@ -9,8 +9,12 @@ gulp.task('clean', function(cb) {
   return del(["build"], cb);
 });
 
+gulp.task("move-static-files", function() {
+  return gulp.src(["favicon.ico", "systemjs.config.js"], { nodir: true }).pipe(gulp.dest("build"));
+});
+
 gulp.task("move-index-html", function() {
-  return gulp.src(["app/index.html", "favicon.ico"], { nodir: true }).pipe(gulp.dest("build"));
+  return gulp.src(["app/index.html"], { nodir: true }).pipe(gulp.dest("build"));
 });
 
 /**
@@ -37,16 +41,20 @@ gulp.task('compile-sass', function() {
 /**
  * Copy all required libraries into build directory.
  */
-gulp.task("cleanup", ['move-fonts', 'move-index-html', 'move-templates', 'compile-sass'], function() {
+gulp.task("cleanup", ['move-fonts', 'move-static-files', 'move-index-html', 'move-templates', 'compile-sass'], function() {
   return gulp.src([
           'es6-shim/es6-shim.min.js',
-          'systemjs/dist/system-polyfills.js',
-          'angular2/bundles/angular2-polyfills.js',
-          'angular2/es6/dev/src/testing/shims_for_IE.js',
+          'es6-shim/es6-shim.map',
+          'zone.js/dist/zone.js',
+          'reflect-metadata/Reflect.js',
+          'reflect-metadata/Reflect.js.map',
           'systemjs/dist/system.src.js',
-          'rxjs/bundles/Rx.js',
-          'angular2/bundles/angular2.dev.js',
-          'angular2/bundles/router.dev.js',
+          'rxjs/**/*.js',
+          'rxjs/**/*.js.map',
+          'angular2-in-memory-web-api/**/*.js',
+          'angular2-in-memory-web-api/**/*.js.map',
+          '@angular/**/*.js',
+          '@angular/**/*.js.map',
           'bootstrap-sass/assets/javascripts/bootstrap.min.js'
       ], {cwd: "node_modules/**"}) /* Glob required here. */
       .pipe(gulp.dest("build/lib"));
