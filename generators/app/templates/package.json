@@ -9,7 +9,7 @@
     "start": "gulp cleanup && tsc && http-server build -p",
     "dev": "gulp clean && gulp cleanup && tsc && concurrently \"tsc -w\" \"lite-server -c bs-config.json\" \"gulp watch\"",
     "lint": "tslint ./app/**/*.ts -t verbose",
-    "e2e": "tsc && concurrently \"http-server\" \"protractor protractor.config.js\"",
+    "e2e": "tsc && concurrently \"http-server build\" \"protractor protractor.config.js\"",
     "postinstall": "node node_modules/typings/dist/bin.js install",
     "test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
     "webdriver:update": "webdriver-manager update"
