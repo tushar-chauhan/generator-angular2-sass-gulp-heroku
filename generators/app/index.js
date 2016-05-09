@@ -70,36 +70,29 @@ module.exports = yeoman.Base.extend({
     this.log(chalk.green.bold("\nGenerating application...\n"));
 
     var statics = [
-      "CHANGELOG.md",
-      "Dockerfile",
-      "LICENSE",
       "Procfile",
-      "bs-config.json",
-      "e2e-spec.js",
-      "favicon.ico",
+      "angular-cli-build.js",
       "gulpfile.js",
-      "karma-test-shim.js",
-      "karma.conf.js",
-      "protractor.config.js",
-      "systemjs.config.js",
-      "tsconfig.json",
       "tslint.json",
+      "README.md",
+      "package.json",
       "typings.json",
-      "wallaby.js",
-      ".dockerignore",
+      ".clang-format",
       ".editorconfig",
       ".gitignore"
     ];
 
     var directories = [
-      "app",
-      "styles",
-      "typings"
+      "src",
+      "config",
+      "e2e"
     ];
 
     var emptiyDirectories = [
-      "app/pipes",
-      "app/services"
+      "src/app/components",
+      "src/app/pipes",
+      "src/app/services",
+      "public"
     ];
 
     statics.forEach(function (f) {
@@ -122,6 +115,14 @@ module.exports = yeoman.Base.extend({
       {
         appName: this.answers.appname,
         gitRepo: this.answers.gitrepo
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath("angular-cli.json"),
+      this.destinationPath(this.answers.appname + '/angular-cli.json'),
+      {
+        appName: this.answers.appname
       }
     );
 

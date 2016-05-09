@@ -11,9 +11,10 @@ A Yeoman generator to create an Angular2 startup project with following features
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-angular2-sass-gulp-heroku using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [angular-cli](https://github.com/angular/angular-cli), [Yeoman](http://yeoman.io) and generator-angular2-sass-gulp-heroku using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
+npm install -g angular-cli
 npm install -g yo
 npm install -g generator-angular2-sass-gulp-heroku
 ```

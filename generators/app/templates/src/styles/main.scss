@@ -1,0 +1,7 @@
+// Override bootstrap sass variables here(above import)
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// Write SCSS here
+h1{
+  font-size: 40px;
+}

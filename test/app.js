@@ -13,7 +13,7 @@ describe('generator-angular2-sass-gulp-heroku:app', function () {
 
   it('creates files', function () {
     assert.file([
-      "CHANGELOG.md", "Dockerfile", "LICENSE", "Procfile", "README.md", "bs-config.json", "e2e-spec.js", "favicon.ico", "gulpfile.js", "karma-test-shim.js", "karma.conf.js", "package.json", "protractor.config.js", "tsconfig.json", "tslint.json", "typings.json", "wallaby.js", ".dockerignore", ".editorconfig", ".gitignore"
+      "Procfile", "angular-cli-build.js", "gulpfile.js", "tslint.json", "README.md", "angular-cli.json", "package.json", "typings.json", ".clang-format", ".editorconfig", ".gitignore"
     ]);
   });
 });
