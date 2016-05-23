@@ -1,6 +1,6 @@
 {
   "name": "generator-angular2-sass-gulp-heroku",
-  "version": "1.2.1",
+  "version": "1.2.5",
   "description": "An Angular2 startup project generator with configuration & support for auto compilation of SASS & Bootstrap SASS, also including full support of angular-cli for creating perfect build for deployment on Heroku",
   "homepage": "https://github.com/tushar-chauhan/generator-angular2-sass-gulp-heroku",
   "author": {
@@ -19,7 +19,7 @@
     "chalk": "^1.0.0",
     "lodash": "4.11.2",
     "mkdirp": "^0.5.1",
-    "yeoman-generator": "^0.22.0",
+    "yeoman-generator": "^0.23.3",
     "yosay": "^1.0.2"
   },
   "devDependencies": {

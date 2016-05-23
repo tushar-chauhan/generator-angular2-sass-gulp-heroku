@@ -31,11 +31,10 @@ module.exports = yeoman.Base.extend({
   },
 
   prompting: function () {
-    var done = this.async();
-
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to ' + chalk.red('\nangular2-sass-gulp-heroku\n') + ' generator!'
+      'Welcome to ' + chalk.red('angular2-sass-gulp-heroku') + ' generator!',
+      { maxLength: 25  }
     ));
 
     var prompts = [
@@ -54,15 +53,14 @@ module.exports = yeoman.Base.extend({
       {
         type: 'input',
         name: 'gitrepo',
-        message: 'Github URL of this repo(sets Github URL in package.json): ',
+        message: 'Github URL of this project(sets Github URL in package.json): ',
         default: ''
       }
     ];
 
-    this.prompt(prompts, function (answers) {
+    return this.prompt(prompts).then(function (answers) {
       this.answers = answers;
       this.appname = this.answers.appname ? _.kebabCase(this.answers.appname) : _.kebabCase(this.appname);
-      done();
     }.bind(this));
   },
 
@@ -74,12 +72,11 @@ module.exports = yeoman.Base.extend({
       "angular-cli-build.js",
       "gulpfile.js",
       "tslint.json",
-      "README.md",
-      "package.json",
       "typings.json",
       ".clang-format",
       ".editorconfig",
-      ".gitignore"
+      ".gitignore",
+      ".npmignore"
     ];
 
     var directories = [
@@ -95,48 +92,51 @@ module.exports = yeoman.Base.extend({
       "public"
     ];
 
+    var self = this;
     statics.forEach(function (f) {
-      this.fs.copy(this.templatePath(f), this.destinationPath(this.answers.appname + '/' + f));
-    }.bind(this));
+      if (self.fs.exists(self.templatePath(f))) {
+        self.fs.copy(self.templatePath(f), self.destinationPath(path.join(self.answers.appname + '/' + ((f === '.npmignore') ? '.gitignore' : f))));
+      }
+    });
 
-    this.fs.copyTpl(
-      this.templatePath("package.json"),
-      this.destinationPath(this.answers.appname + '/package.json'),
+    self.fs.copyTpl(
+      self.templatePath("package.json"),
+      self.destinationPath(self.answers.appname + '/package.json'),
       {
-        appName: this.answers.appname,
-        appDesc: this.answers.appdesc,
-        gitRepo: this.answers.gitrepo
+        appName: self.answers.appname,
+        appDesc: self.answers.appdesc,
+        gitRepo: self.answers.gitrepo
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath("README.md"),
-      this.destinationPath(this.answers.appname + '/README.md'),
+    self.fs.copyTpl(
+      self.templatePath("README.md"),
+      self.destinationPath(self.answers.appname + '/README.md'),
       {
-        appName: this.answers.appname,
-        gitRepo: this.answers.gitrepo
+        appName: self.answers.appname,
+        gitRepo: self.answers.gitrepo
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath("angular-cli.json"),
-      this.destinationPath(this.answers.appname + '/angular-cli.json'),
+    self.fs.copyTpl(
+      self.templatePath("angular-cli.json"),
+      self.destinationPath(self.answers.appname + '/angular-cli.json'),
       {
-        appName: this.answers.appname
+        appName: self.answers.appname
       }
     );
 
     emptiyDirectories.forEach(function (f) {
-      mkdirp(this.destinationPath(this.answers.appname + '/' + f), function (err) {
+      mkdirp(self.destinationPath(self.answers.appname + '/' + f), function (err) {
         if (err) {
-          this.log(chalk.red('\nError while creating emty directories: ') + err);
+          self.log(chalk.red('\nError while creating emty directories: ') + err);
         }
-      }.bind(this));
-    }.bind(this));
+      });
+    });
 
     directories.forEach(function (f) {
-      this.fs.copy(this.templatePath(f), this.destinationPath(this.answers.appname + '/' + f));
-    }.bind(this));
+      self.fs.copy(self.templatePath(f), self.destinationPath(self.answers.appname + '/' + f));
+    });
   },
 
   install: function () {
