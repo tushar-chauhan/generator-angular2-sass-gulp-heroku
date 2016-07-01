@@ -89,6 +89,8 @@ Moreover, you can create any other folders to hold TypeScript files within 'app'
 
 Bootstrap SASS is already included in the application using the 'styles/main.scss' file. If you like using SASS only, you can create further SCSS files within same directory or component specific directories. SASS compilation is already enabled in this app.
 
+This app uses [ng2-bootstrap](https://github.com/valor-software/ng2-bootstrap) for getting angular2 compatible bootstrap components. You can find one example in site component in this project.
+
 ## Testing
 
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.

@@ -20,6 +20,9 @@
   },
   "defaults": {
     "prefix": "app",
-    "sourceDir": "src"
+    "sourceDir": "src",
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "lazyRoutePrefix": "+"
   }
 }
