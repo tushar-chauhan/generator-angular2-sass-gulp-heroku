@@ -1,14 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertComponent, DATEPICKER_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'site',
-  directives: [AlertComponent, DATEPICKER_DIRECTIVES],
-  templateUrl: 'site.component.html',
-  styleUrls: ['site.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class SiteComponent implements OnInit {
+export class AppComponent {
   public dt:Date = new Date();
   private minDate:Date = null;
   private events:Array<any>;
@@ -26,10 +23,6 @@ export class SiteComponent implements OnInit {
 
   public getDate():number {
     return this.dt && this.dt.getTime() || new Date().getTime();
-  }
-
-  ngOnInit() {
-
   }
 
 }

@@ -5,9 +5,11 @@
 [![NPM version][npm-image]][npm-url]
 
 A Yeoman generator to create an Angular2 startup project with following features:
-* Auto-compilation support for SASS
-* Gulp tasks for creating perfect build to deploy on Heroku
+* Generate Angular2 apps based on newer Webpack support, which is now supported by default in [angular-cli](https://github.com/angular/angular-cli)
+* [ng2-bootstrap](https://github.com/valor-software/ng2-bootstrap) support out of the box
+* Auto-compilation support for SCSS
 * Configuration for Deployment on Heroku
+* Uses Express to serve from Heroku
 
 ## Installation
 

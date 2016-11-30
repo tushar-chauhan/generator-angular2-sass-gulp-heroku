@@ -1,9 +1,11 @@
-export class SitePage {
+import { browser, element, by } from 'protractor';
+
+export class WebpackNg2CliV21Page {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }

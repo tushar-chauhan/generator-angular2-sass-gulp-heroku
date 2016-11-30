@@ -87,7 +87,7 @@ This will create the new component in the components directory itself.
 
 Moreover, you can create any other folders to hold TypeScript files within 'app' directory, the compilation will recursively compile and create appropriate structure in the 'dist' directory.
 
-Bootstrap SASS is already included in the application using the 'styles/main.scss' file. If you like using SASS only, you can create further SCSS files within same directory or component specific directories. SASS compilation is already enabled in this app.
+Bootstrap SASS is already included in the application using the 'src/styles.scss' file. If you like using SCSS only, you can create further SCSS files within same directory or component specific directories. SASS compilation is already enabled in this app.
 
 This app uses [ng2-bootstrap](https://github.com/valor-software/ng2-bootstrap) for getting angular2 compatible bootstrap components. You can find one example in site component in this project.
 

@@ -1,2 +1,2 @@
-export { environment } from './environment';
-export { SiteComponent } from './site.component';
+export * from './app.component';
+export * from './app.module';

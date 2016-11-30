@@ -1,5 +1,5 @@
 'use strict';
-var path = require("path");
+var path = require('path');
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
@@ -34,7 +34,7 @@ module.exports = yeoman.Base.extend({
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to ' + chalk.red('angular2-sass-gulp-heroku') + ' generator!',
-      { maxLength: 25  }
+      {maxLength: 25}
     ));
 
     var prompts = [
@@ -65,31 +65,29 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    this.log(chalk.green.bold("\nGenerating application...\n"));
+    this.log(chalk.green.bold('\nGenerating application...\n'));
 
     var statics = [
-      "Procfile",
-      "angular-cli-build.js",
-      "gulpfile.js",
-      "tslint.json",
-      "typings.json",
-      ".clang-format",
-      ".editorconfig",
-      ".gitignore",
-      ".npmignore"
+      'Procfile',
+      'tslint.json',
+      'karma.conf.js',
+      'protractor.conf.js',
+      'server.js',
+      '.editorconfig',
+      '.gitignore',
+      '.npmignore'
     ];
 
     var directories = [
-      "src",
-      "config",
-      "e2e"
+      'src',
+      'e2e'
     ];
 
     var emptiyDirectories = [
-      "src/app/components",
-      "src/app/pipes",
-      "src/app/services",
-      "public"
+      'src/app/components',
+      'src/app/pipes',
+      'src/app/services',
+      'src/assets'
     ];
 
     var self = this;
@@ -100,7 +98,7 @@ module.exports = yeoman.Base.extend({
     });
 
     self.fs.copyTpl(
-      self.templatePath("package.json"),
+      self.templatePath('package.json'),
       self.destinationPath(self.answers.appname + '/package.json'),
       {
         appName: self.answers.appname,
@@ -110,7 +108,7 @@ module.exports = yeoman.Base.extend({
     );
 
     self.fs.copyTpl(
-      self.templatePath("README.md"),
+      self.templatePath('README.md'),
       self.destinationPath(self.answers.appname + '/README.md'),
       {
         appName: self.answers.appname,
@@ -119,7 +117,7 @@ module.exports = yeoman.Base.extend({
     );
 
     self.fs.copyTpl(
-      self.templatePath("angular-cli.json"),
+      self.templatePath('angular-cli.json'),
       self.destinationPath(self.answers.appname + '/angular-cli.json'),
       {
         appName: self.answers.appname
@@ -129,9 +127,10 @@ module.exports = yeoman.Base.extend({
     emptiyDirectories.forEach(function (f) {
       mkdirp(self.destinationPath(self.answers.appname + '/' + f), function (err) {
         if (err) {
-          self.log(chalk.red('\nError while creating emty directories: ') + err);
+          self.log(chalk.red('\nError while creating empty directories: ') + err);
         }
       });
+      self.fs.copy(self.templatePath('src/assets/.gitkeep'), self.destinationPath(self.answers.appname + '/' + f + '/.gitkeep'));
     });
 
     directories.forEach(function (f) {
@@ -148,7 +147,7 @@ module.exports = yeoman.Base.extend({
   },
 
   end: function () {
-    this.log("Project created at: ", this.destinationRoot() + '/' + this.answers.appname);
+    this.log('Project created at: ', this.destinationRoot() + '/' + this.answers.appname);
     this.log(chalk.green.bold('\nApp generated successfully.\n'));
   }
 });
